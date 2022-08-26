@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Birthday Present Options!!</title>
+    <link rel="stylesheet" href="css/styles.css">
+  </head>
+  <body>
+    <div class="box" id="heading">
+      <%  if (remainingDays === 0){ %>
+          <h1 style="color: red">Yeah!!! It is your Birthday!!!</h1>
+          <h2 style="color: red">Happy Birthday!!!</h2>
+      <%  } else { %>
+          <h1 style="color: purple">Birthday Present Options!!</h1>
+          <h2 style="color: purple"><%= remainingDays %> days remaining!! <h2>
+      <%  } %>
+    </div>
+
+<div class="box">
+
+      <% for (var i=0; i<gifts.length; i++) { %>
+        <form class="" action="/update" method="post">
+          <div class="item">
+          <input type="checkbox" name="checkbox" value=<%= gifts[i]._id %> onChange="this.form.submit()">
+        <p><a href= <%= gifts[i].url%> ><%=     gifts[i].name %> </a>
+          <%  if (gifts[i].available){ %>
+            - Available
+          <%  } else { %>
+            - Taken
+          <%  } %>
+        </p>
+        </div>
+        </form>
+
+      <% } %>
+</div>
+<div class="box">
+      <div class="box,item" id="heading">
+        <h2>Add Gifts</h2>
+      </div>
+
+
+        <form action="/" method="post">
+
+          <div class="item">
+            <label for="gift">Gift: </label>
+            <input type="text" id="gift" name="newItem" placeholder="Gift" autocomplete="off"><br>
+          </div>
+
+        <div class="item">
+          <label for="giftURL">Link: </label>
+          <input type="text" id="giftURL" name="newItemURL" placeholder="Gift Link" autocomplete="off"><br>
+        </div>
+
+
+
+
+          <button type="submit" name="Update List">+</button>
+        </form>
+      </div>
+
+
+
+  </body>
+</html>
