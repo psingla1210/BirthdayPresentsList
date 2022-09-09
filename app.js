@@ -11,7 +11,7 @@ app.set("view engine", "ejs")
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 
-mongoose.connect("mongodb+srv://prachi121:prachi1210@cluster0.dr4cg1e.mongodb.net/birthdaypresentslistDB", {useNewUrlParser: true});
+mongoose.connect(", {useNewUrlParser: true});
 
 // Create Schema
 const presentsListSchema = new mongoose.Schema(
